@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { TabsPage } from './tabs.page';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { TabsPage } from "./tabs.page";
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: "tabs",
     component: TabsPage,
     children: [
       // {
@@ -16,29 +16,33 @@ const routes: Routes = [
       //   loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
       // },
       {
-        path: 'nodes',
-        loadChildren: () => import('../nodes/nodes.module').then(m => m.NodesPageModule)
+        path: "nodes",
+        loadChildren: () =>
+          import("../nodes/nodes.module").then((m) => m.NodesPageModule),
       },
       {
-        path: 'settings',
-        loadChildren: () => import('../settings/settings.module').then(m => m.SettingsPageModule)
+        path: "settings",
+        loadChildren: () =>
+          import("../settings/settings.module").then(
+            (m) => m.SettingsPageModule
+          ),
       },
       {
-        path: '',
-        redirectTo: '/tabs/nodes',
-        pathMatch: 'full'
-      }
-    ]
+        path: "",
+        redirectTo: "/tabs/nodes",
+        pathMatch: "full",
+      },
+    ],
   },
   {
-    path: '',
-    redirectTo: '/tabs/nodes',
-    pathMatch: 'full'
-  }
+    path: "",
+    redirectTo: "/tabs/nodes",
+    pathMatch: "full",
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class TabsPageRoutingModule {}
