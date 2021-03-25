@@ -2,10 +2,8 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
-    </ion-buttons>    
-    <ion-title>
-      Nodo {{dev_id}}
-    </ion-title>
+    </ion-buttons>
+    <ion-title> Nodo {{dev_id}} </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -25,11 +23,15 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-label position="stacked">Orden<ion-text color="danger">*</ion-text></ion-label>
+        <ion-label position="stacked"
+          >Orden<ion-text color="danger">*</ion-text></ion-label
+        >
         <ion-input></ion-input>
       </ion-item>
       <div class="ion-padding">
-        <ion-button expand="block" type="submit" class="ion-no-margin">Enviar</ion-button>
+        <ion-button expand="block" type="submit" class="ion-no-margin"
+          >Enviar</ion-button
+        >
       </div>
     </ion-card-content>
   </ion-card>
@@ -39,5 +41,4 @@
       <ion-title size="large">Sensores</ion-title>
     </ion-toolbar>
   </ion-header>
-
 </ion-content>

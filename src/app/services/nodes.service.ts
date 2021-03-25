@@ -1,50 +1,47 @@
-import { Injectable } from '@angular/core';
-import { Node } from 'src/models/node';
-import { Payload } from 'src/models/payload';
-import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { Node } from "src/models/node";
+import { Payload } from "src/models/payload";
+import { HttpClient } from "@angular/common/http";
+import { Observable, of } from "rxjs";
+import { catchError, map, tap } from "rxjs/operators";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class NodesService {
-
   private sensors: Node[] = [];
 
   //private url: string = "https://plataforma-tfg.herokuapp.com";
- private url: string = "http://localhost:3000";
+  private url: string = "http://localhost:3000";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getNodes(): Observable<Node[]> {
     //https://angular.io/tutorial/toh-pt6
-    return this.http.get<Node[]>(this.url +'/api/nodes')
-      .pipe(
-        tap(_ => this.log('fetched nodes')),
-        catchError(this.handleError<Node[]>('getNodes', []))
-      );
-   }
+    return this.http.get<Node[]>(this.url + "/api/nodes").pipe(
+      tap((_) => this.log("fetched nodes")),
+      catchError(this.handleError<Node[]>("getNodes", []))
+    );
+  }
 
   getNodesLastPayload(dev_id: string): Observable<Payload> {
-    return this.http.get<Payload>(`${this.url}/api/payload/${dev_id}/last`)
+    return this.http
+      .get<Payload>(`${this.url}/api/payload/${dev_id}/last`)
       .pipe(
-        tap(_ => this.log('fetched nodes')),
-        catchError(this.handleError<Payload>('getNodesLastPayload', null))
+        tap((_) => this.log("fetched nodes")),
+        catchError(this.handleError<Payload>("getNodesLastPayload", null))
       );
-   }
+  }
 
-   getNodePayloads(dev_id: string): Observable<Payload[]> {
-    return this.http.get<Payload[]>(`${this.url}/api/payloads/${dev_id}`)
-      .pipe(
-        tap(_ => this.log('fetched nodes')),
-        catchError(this.handleError<Payload[]>('getNodesLastPayload', null))
-      );
-   }
+  getNodePayloads(dev_id: string): Observable<Payload[]> {
+    return this.http.get<Payload[]>(`${this.url}/api/payloads/${dev_id}`).pipe(
+      tap((_) => this.log("fetched nodes")),
+      catchError(this.handleError<Payload[]>("getNodesLastPayload", null))
+    );
+  }
 
-   private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T>(operation = "operation", result?: T) {
     return (error: any): Observable<T> => {
-
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
