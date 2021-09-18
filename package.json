@@ -19,7 +19,7 @@
     "@angular/platform-browser": "~9.1.6",
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
-    "@capacitor/android": "^3.2.2",
+    "@capacitor/android": "^3.2.3",
     "@capacitor/core": "3.2.0",
     "@ionic-native/core": "^5.35.0",
     "@ionic-native/splash-screen": "^5.35.0",
