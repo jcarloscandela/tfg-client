@@ -18,7 +18,7 @@
     "@angular/forms": "~9.1.6",
     "@angular/platform-browser": "~9.1.6",
     "@angular/platform-browser-dynamic": "~9.1.6",
-    "@angular/router": "~9.1.6",
+    "@angular/router": "~12.2.9",
     "@capacitor/android": "^3.2.4",
     "@capacitor/core": "3.2.3",
     "@ionic-native/core": "^5.36.0",
